@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: songo-prestige
+    runtime: docker
+    plan: free
+    autoDeployTrigger: commit

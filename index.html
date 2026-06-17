@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songo - Édition Prestige</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ÉCRAN DE SÉLECTION DE CAMP (affiché avant de rejoindre la partie) -->
+    <div class="selection-screen" id="selection-screen">
+        <div class="selection-card">
+            <p class="selection-eyebrow">Songo — Édition Prestige</p>
+            <h1 class="selection-title">Choisissez votre camp</h1>
+            <p class="selection-sub">Une partie oppose le Nord au Sud. Votre choix reste fixé pour toute la durée de la partie en cours.</p>
+
+            <div class="camp-options">
+                <button class="camp-card" id="choix-nord" data-camp="2" type="button">
+                    <span class="camp-name">Nord</span>
+                    <span class="camp-status" id="statut-nord">Vérification…</span>
+                </button>
+
+                <span class="camp-versus">VS</span>
+
+                <button class="camp-card" id="choix-sud" data-camp="1" type="button">
+                    <span class="camp-name">Sud</span>
+                    <span class="camp-status" id="statut-sud">Vérification…</span>
+                </button>
+            </div>
+
+            <p class="selection-note" id="selection-message"></p>
+        </div>
+    </div>
+
+    <!-- PLATEAU DE JEU (masqué jusqu'au choix d'un camp) -->
+    <div class="app-container hidden" id="app-container">
+        <header class="game-header">
+            <h1>Songo</h1>
+            <div class="control-panel"></div>
+        </header>
+
+        <main class="game-layout">
+            <div class="score-board">
+                <div class="bloc-score">
+                    <span class="label">Nord</span>
+                    <span class="valeur" id="score-nord">0</span>
+                </div>
+                <div class="turn-indicator" id="turn-display">TOUR : JOUEUR SUD </div>
+
+                <div class="bloc-score">
+                    <span class="label">Sud</span>
+                    <span class="valeur" id="score-sud">0</span>
+                </div>
+
+            </div>
+            <section class="board-area">
+                <div class="board-row row-nord">
+                    <button class="pit" data-player="nord" index="13"><span class="pit-num">1</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="nord" index="12"><span class="pit-num">2</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="nord" index="11"><span class="pit-num">3</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="nord" index="10"><span class="pit-num">4</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="nord" index="9"><span class="pit-num">5</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="nord" index="8"><span class="pit-num">6</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="nord" index="7"><span class="pit-num">7</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+                </div>
+
+                <div class="board-row row-sud">
+                    <button class="pit" data-player="sud" index="0"><span class="pit-num">7</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="sud" index="1"><span class="pit-num">6</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="sud" index="2"><span class="pit-num">5</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="sud" index="3"><span class="pit-num">4</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="sud" index="4"><span class="pit-num">3</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="sud" index="5"><span class="pit-num">2</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+
+                    <button class="pit" data-player="sud" index="6"><span class="pit-num">1</span>
+                        <div class="seeds-container"></div><span class="seed-count">5</span>
+                    </button>
+                </div>
+            </section>
+
+            <aside class="info-area">
+                <div class="message-log" aria-live="polite">
+                    Le jeu commence. Au Sud de jouer.
+                </div>
+                <div class="info-actions">
+                    <button class="restart" id="btn-recommencer">Reinitialiser</button>
+                    <button class="leave-camp" id="btn-quitter-camp" type="button">Changer de camp</button>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
